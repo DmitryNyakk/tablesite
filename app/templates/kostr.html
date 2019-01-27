@@ -1,0 +1,123 @@
+{% extends "index.html" %}
+
+{% block navbar %}
+  <nav class="navbar navbar-default" style="background-image: url(http://co14.nevseoboi.com.ua/196/19555/1417281628-6015149-www.nevseoboi.com.ua.jpg);
+    background-position:   left 75% ;">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url_for('index') }}">MainBase</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav">
+                <li><a href="{{ url_for('yar') }}">Yaroslavl</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav">
+                    <li><a class="navbar-brand" href="{{ url_for('kostr') }}">Kostroma</a></li>
+                </ul>
+            </div>
+            
+            
+        </div>
+    </nav>
+
+
+{% endblock %}
+
+
+{% block app_content %}
+<table  class="table table-hover">
+<form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <tr><td>
+            {{ 'ID' }}<br>
+            {{ form.idi(size=32) }}
+        </td>
+        <td>
+            {{ 'City' }}<br>
+            {{ form.city(size=32) }}
+        </td>
+        <td>
+            {{ 'Rodn_gorod' }}<br>
+            {{ form.rodn_gorod(size=32) }}
+        </td>
+         <td>
+            {{ 'Sem_pol' }}<br>
+            {{ form.sem_pol(size=2) }}
+        </td>
+         <td>
+            {{ 'Age' }}<br>
+            {{ form.age(size=3) }}
+        </td>
+        <td>{{ form.submit() }}<td>
+        </tr>
+    </form>
+</table>
+{% endblock %}
+{% block app_content2 %}
+{% if users %}
+
+<table class="table" style = "border: 1px solid grey;">
+    <thead class="thead-dark" ><tr style = "background: radial-gradient(circle at 35% 15%, #eacda3, #ffd89b);">
+    <th scope="col">
+        <form action="" method="post" novalidate>
+            {{ form_table.hidden_tag() }}
+            {{ form_table.sub_id(class_="btn btn-success") }}
+         </form>
+    </th>
+    <th scope="col" >
+        <form action="" method="post" novalidate>
+            {{ form_table.hidden_tag() }}
+            {{ form_table.sub_name_p(class_="btn btn-success") }}
+         </form>
+        </th>
+    <th scope="col">
+        <form action="" method="post" novalidate>
+            {{ form_table.hidden_tag() }}
+            {{ form_table.sub_age(class_="btn btn-success") }}
+         </form>
+        </th>
+    <th scope="col">
+        <form action="" method="post" novalidate>
+            {{ form_table.hidden_tag() }}
+            {{ form_table.sub_gorod(class_="btn btn-success") }}
+         </form>
+        </th>
+     <th scope="col">
+        <form action="" method="post" novalidate>
+            {{ form_table.hidden_tag() }}
+            {{ form_table.sub_r_gorod(class_="btn btn-success") }}
+         </form>
+        </th>
+    <th scope="col">
+        <form action="" method="post" novalidate>
+            {{ form_table.hidden_tag() }}
+            {{ form_table.sub_sem_pol(class_="btn btn-success") }}
+         </form>
+    </th>
+    <th scope="col">
+        <form action="" method="post" novalidate>
+            {{ form_table.hidden_tag() }}
+            {{ form_table.sub_url(class_="btn btn-success") }}
+         </form>
+    </th>
+    </tr></thead>
+    <tbody>
+  {% for user in users %}
+    <tr valign="top">
+    <td >{{ user.id }}</td>
+    <td>{{ user.name_p }} </td> 
+    <td> {{user.age}}</td> 
+    <td>{{user.gorod}}</td> 
+    <td>{{user.r_gorod}}</td> 
+     <td> {{user.sem_pol}}</td> </td>
+    <td><a href={{user.url}}>Click</a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+
+{%endif%}
+{% endblock %}

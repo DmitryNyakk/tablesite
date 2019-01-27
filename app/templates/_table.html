@@ -1,0 +1,60 @@
+
+<table class="table" style = "border: 1px solid grey;">
+    <thead class="thead-dark" ><tr style = "background: radial-gradient(circle at 35% 15%, aqua, lightblue);">
+    <th scope="col">
+        <form action="" method="post" novalidate>
+            {{ form_table.hidden_tag() }}
+            {{ form_table.sub_id(class_="btn btn-success") }}
+         </form>
+    </th>
+    <th scope="col" >
+        <form action="" method="post" novalidate>
+            {{ form_table.hidden_tag() }}
+            {{ form_table.sub_name_p(class_="btn btn-success") }}
+         </form>
+        </th>
+    <th scope="col">
+        <form action="" method="post" novalidate>
+            {{ form_table.hidden_tag() }}
+            {{ form_table.sub_age(class_="btn btn-success") }}
+         </form>
+        </th>
+    <th scope="col">
+        <form action="" method="post" novalidate>
+            {{ form_table.hidden_tag() }}
+            {{ form_table.sub_gorod(class_="btn btn-success") }}
+         </form>
+        </th>
+     <th scope="col">
+        <form action="" method="post" novalidate>
+            {{ form_table.hidden_tag() }}
+            {{ form_table.sub_r_gorod(class_="btn btn-success") }}
+         </form>
+        </th>
+    <th scope="col">
+        <form action="" method="post" novalidate>
+            {{ form_table.hidden_tag() }}
+            {{ form_table.sub_sem_pol(class_="btn btn-success") }}
+         </form>
+    </th>
+    <th scope="col">
+        <form action="" method="post" novalidate>
+            {{ form_table.hidden_tag() }}
+            {{ form_table.sub_url(class_="btn btn-success") }}
+         </form>
+    </th>
+    </tr></thead>
+    <tbody>
+  {% for user in users %}
+    <tr valign="top">
+    <td >{{ user.id }}</td>
+    <td>{{ user.name_p }} </td> 
+    <td> {{user.age}}</td> 
+    <td>{{user.gorod}}</td> 
+    <td>{{user.r_gorod}}</td> 
+     <td> {{user.sem_pol}}</td> </td>
+    <td><a href={{user.url}}>Click</a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
